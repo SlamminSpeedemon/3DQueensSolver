@@ -18,11 +18,11 @@ public class RookHandler {
         if (board.get(z,i,j).equals("0")) {
             board.set(z,i,j,"R");
             allStraights(z,i,j);
+            numOfRooks++;
         }
     }
 
     public void allStraights(int z, int i, int j) {
-        System.out.println("zDim is " + zDim);
         for (int counter = 0; counter < zDim; counter++) {
             if (board.get(counter,i,j).equals("0")) {
                 board.set(counter,i,j,"x");
@@ -40,6 +40,5 @@ public class RookHandler {
                 board.set(z,i,counter,"x");
             }
         }
-
     }
 }

@@ -17,5 +17,10 @@ public class Main {
         rooks.placeRook(1,1,1);
         board.printBoard();
 
+        System.out.println("\n\n\tWith Queen overwriting rook");
+        QueenHandler queens = new QueenHandler(board);
+        queens.placeQueen(3,2,2);
+        board.printBoard();
+
     }
 }
