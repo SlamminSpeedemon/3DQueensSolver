@@ -1,5 +1,21 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        Scanner inputGet = new Scanner(System.in);
+        System.out.println("Enter rows dim");
+        int rows = inputGet.nextInt();
+        System.out.println("Enter cols dim");
+        int cols = inputGet.nextInt();
+        System.out.println("Enter 3rd dim");
+        int height = inputGet.nextInt();
+
+        Board board = new Board(height,rows,cols);
+        board.setEmpty();
+
+        RookHandler rooks = new RookHandler(board);
+        rooks.placeRook(1,1,1);
+        board.printBoard();
+
     }
 }
