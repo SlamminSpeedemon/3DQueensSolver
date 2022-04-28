@@ -22,8 +22,7 @@ public class QueenHandler {
     }
 
     public void diagnols(int z, int i, int j) {
-        //2 dimsensioal first
-        int zCount = z;
+        //2 dimsensioal first (i and j)
         int iCount = i;
         int jCount = j;
         while (iCount>0 && jCount>0) { //find corner
@@ -43,13 +42,70 @@ public class QueenHandler {
             iCount--;
             jCount++;
         }
-        while (iCount < iDim && jCount > 0) { //top right to bottom left
+        while (iCount < iDim && jCount >= 0) { //top right to bottom left
             if (board.get(z,iCount,jCount).equals("0")) {
                 board.set(z,iCount,jCount,"x");
             }
             iCount++;
             jCount--;
         }
+    if (zDim > 1) {
+        //3 dimensional (z and i)
+        int zCount = z;
+        iCount = i;
+        while (iCount > 0 && zCount > 0) { //find corner
+            iCount--;
+            zCount--;
+        }
+        while (iCount < iDim && zCount < zDim) { //top left to bottom right
+            if (board.get(zCount, iCount, j).equals("0")) {
+                board.set(zCount, iCount, j, "x");
+            }
+            iCount++;
+            zCount++;
+        }
+        iCount = i;
+        zCount = z;
+        while (iCount > 0 && zCount < zDim) { //find corner
+            iCount--;
+            zCount++;
+        }
+        while (iCount < iDim && zCount >= 0) { //top right to bottom left
+            if (board.get(zCount, iCount, j).equals("0")) {
+                board.set(zCount, iCount, j, "x");
+            }
+            iCount++;
+            zCount--;
+        }
+
+        //3 dimensional (z and j)
+        zCount = z;
+        jCount = j;
+        while (zCount > 0 && jCount > 0) { //find corner
+            zCount--;
+            jCount--;
+        }
+        while (zCount < zDim && jCount < jDim) { //top left to bottom right
+            if (board.get(zCount, i, jCount).equals("0")) {
+                board.set(zCount, i, jCount, "x");
+            }
+            zCount++;
+            jCount++;
+        }
+        zCount = z;
+        jCount = j;
+        while (zCount > 0 && jCount < jDim) { //find corner
+            zCount--;
+            jCount++;
+        }
+        while (zCount < zDim && jCount >= 0) { //top right to bottom left
+            if (board.get(zCount, i, jCount).equals("0")) {
+                board.set(zCount, i, jCount, "x");
+            }
+            zCount++;
+            jCount--;
+        }
+    }
     }
 
     public void allStraights(int z, int i, int j) {
