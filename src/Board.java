@@ -43,6 +43,8 @@ public class Board {
             }
             System.out.println("");
         }
+
+        System.out.println("Got " + queen.getNumOfQueens() + " queens");
     }
     public void setQueen(QueenHandler queen) {
         this.queen = queen;

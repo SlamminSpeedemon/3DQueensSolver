@@ -18,7 +18,8 @@ public class QueenHandler {
             board.set(z,i,j,"Q");
             diagnols(z, i, j);
             allStraights(z, i, j);
-            board.printBoard();
+            //board.printBoard();
+            numOfQueens++;
         }
     }
 
@@ -47,8 +48,8 @@ public class QueenHandler {
             //if (iCount > 6) System.out.println("For " + z + " I count is " + iCount + "\t\tiDim is " + iDim);
             //if (jCount < 2) System.out.println("For " + z + " J count is " + jCount);
             if (iCount >= iDim - 1) break;
-            System.out.println("\tI count is " + iCount);
-            System.out.println("\t\tJ count is " + jCount);
+            //System.out.println("\tI count is " + iCount);
+            //System.out.println("\t\tJ count is " + jCount);
             //if (iCount == 4) System.out.println("What the freak");
             try {
                 if (board.get(z,iCount,jCount).equals("0")) {
@@ -140,5 +141,9 @@ public class QueenHandler {
                 board.set(z,i,counter,"x");
             }
         }
+    }
+
+    public int getNumOfQueens() {
+        return numOfQueens;
     }
 }

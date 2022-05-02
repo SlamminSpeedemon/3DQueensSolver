@@ -4,11 +4,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner inputGet = new Scanner(System.in);
         System.out.println("Enter rows dim");
-        int rows = 8;//inputGet.nextInt();
+        int rows = inputGet.nextInt();
         System.out.println("Enter cols dim");
-        int cols = 8;//inputGet.nextInt();
+        int cols = inputGet.nextInt();
         System.out.println("Enter 3rd dim");
-        int height = 5;//inputGet.nextInt();
+        int height = inputGet.nextInt();
 
         Board board = new Board(height,rows,cols);
         board.setEmpty();
@@ -19,11 +19,13 @@ public class Main {
 
         //System.out.println("\n\n\tWith Queen overwriting rook");
         QueenHandler queens = new QueenHandler(board);
+        board.setQueen(queens);
+
         queens.placeQueen(2,2,2);
         board.printBoard();
 
         board.setEmpty();
-        board.setQueen(queens);
+
 
         System.out.println("\n\n\t\tBasic queens solve:\n\n");
         board.spamQueens();
