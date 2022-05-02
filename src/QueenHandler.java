@@ -18,6 +18,7 @@ public class QueenHandler {
             board.set(z,i,j,"Q");
             diagnols(z, i, j);
             allStraights(z, i, j);
+            board.printBoard();
         }
     }
 
@@ -43,9 +44,20 @@ public class QueenHandler {
             jCount++;
         }
         while (iCount < iDim && jCount >= 0) { //top right to bottom left
-            if (board.get(z,iCount,jCount).equals("0")) {
-                board.set(z,iCount,jCount,"x");
+            //if (iCount > 6) System.out.println("For " + z + " I count is " + iCount + "\t\tiDim is " + iDim);
+            //if (jCount < 2) System.out.println("For " + z + " J count is " + jCount);
+            if (iCount >= iDim - 1) break;
+            System.out.println("\tI count is " + iCount);
+            System.out.println("\t\tJ count is " + jCount);
+            //if (iCount == 4) System.out.println("What the freak");
+            try {
+                if (board.get(z,iCount,jCount).equals("0")) {
+                    board.set(z,iCount,jCount,"x");
+                }
+            } catch (Exception e) {
+
             }
+
             iCount++;
             jCount--;
         }
@@ -71,6 +83,7 @@ public class QueenHandler {
             zCount++;
         }
         while (iCount < iDim && zCount >= 0) { //top right to bottom left
+            if (zCount >= zDim) zCount = zDim - 1;
             if (board.get(zCount, iCount, j).equals("0")) {
                 board.set(zCount, iCount, j, "x");
             }
@@ -99,6 +112,7 @@ public class QueenHandler {
             jCount++;
         }
         while (zCount < zDim && jCount >= 0) { //top right to bottom left
+            if (jCount >= jDim) jCount = jDim - 1;
             if (board.get(zCount, i, jCount).equals("0")) {
                 board.set(zCount, i, jCount, "x");
             }

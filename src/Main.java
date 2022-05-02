@@ -22,5 +22,12 @@ public class Main {
         queens.placeQueen(2,2,2);
         board.printBoard();
 
+        board.setEmpty();
+        board.setQueen(queens);
+
+        System.out.println("\n\n\t\tBasic queens solve:\n\n");
+        board.spamQueens();
+        board.printBoard();
+
     }
 }

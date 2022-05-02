@@ -1,5 +1,6 @@
 public class Board {
     private String[][][] board;
+    private QueenHandler queen;
     public Board(int height, int rows, int cols) {
         board = new String[height][rows][cols];
         System.out.println("Height is " + board.length);
@@ -41,6 +42,23 @@ public class Board {
                 System.out.print("\n");
             }
             System.out.println("");
+        }
+    }
+    public void setQueen(QueenHandler queen) {
+        this.queen = queen;
+    }
+
+    public void spamQueens() {
+        if (queen == null) {
+            System.out.println("Please set the queen handler for board");
+        }
+
+        for (int z = 0; z < board.length; z++) {
+            for (int i = 0; i < board[z].length; i++) {
+                for (int j = 0; j < board[z][i].length; j++) {
+                    queen.placeQueen(z,i,j);
+                }
+            }
         }
     }
 }
